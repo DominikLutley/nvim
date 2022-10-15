@@ -75,10 +75,10 @@ packer.startup {
     use { "machakann/vim-swap", event = "VimEnter" }
 
     -- IDE for Lisp
-    if utils.executable("sbcl") then
-      -- use 'kovisoft/slimv'
-      use { "vlime/vlime", rtp = "vim/", ft = { "lisp" } }
-    end
+    -- if utils.executable("sbcl") then
+    --   -- use 'kovisoft/slimv'
+    --   use { "vlime/vlime", rtp = "vim/", ft = { "lisp" } }
+    -- end
 
     -- Super fast buffer jump
     use {
@@ -193,7 +193,7 @@ packer.startup {
     -- use 'mg979/vim-visual-multi'
 
     -- Autosave files on certain events
-    use { "907th/vim-auto-save", event = "InsertEnter" }
+    -- use { "907th/vim-auto-save", event = "InsertEnter" }
 
     -- Show undo history visually
     use { "simnalamburt/vim-mundo", cmd = { "MundoToggle", "MundoShow" } }
@@ -219,6 +219,9 @@ packer.startup {
 
     -- Auto format tools
     use { "sbdchd/neoformat", cmd = { "Neoformat" } }
+
+    -- Automatic formatting for brackets
+    use { "jiangmiao/auto-pairs" }
 
     -- Git command inside vim
     use { "tpope/vim-fugitive", event = "User InGitRepo", config = [[require('config.fugitive')]] }

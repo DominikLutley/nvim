@@ -182,6 +182,9 @@ let g:neoformat_c_clangformat = {
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_c = ['clangformat']
 
+" Format on save
+autocmd BufWritePre * Neoformat
+
 """""""""""""""""""""""""vim-markdown settings"""""""""""""""""""
 " Disable header folding
 let g:vim_markdown_folding_disabled = 1
@@ -417,4 +420,4 @@ function! s:wilder_init() abort
 endfunction
 
 """"""""""""""""""""""""""""""vim-auto-save settings""""""""""""""""""""""""""""""
-let g:auto_save = 1  " enable AutoSave on Vim startup
+" let g:auto_save = 1  " enable AutoSave on Vim startup

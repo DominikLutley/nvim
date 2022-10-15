@@ -89,6 +89,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
 
+if utils.executable("tsserver") then
+  lspconfig.tsserver.setup {
+    on_attach = custom_attach,
+    capabilities = capabilities,
+    -- settings = { documentFormatting = true }
+  }
+end
+
 if utils.executable("pylsp") then
   lspconfig.pylsp.setup {
     on_attach = custom_attach,
@@ -122,18 +130,18 @@ end
 --   vim.notify("pyright not found!", vim.log.levels.WARN, {title = 'Nvim-config'})
 -- end
 
-if utils.executable("clangd") then
-  lspconfig.clangd.setup {
-    on_attach = custom_attach,
-    capabilities = capabilities,
-    filetypes = { "c", "cpp", "cc" },
-    flags = {
-      debounce_text_changes = 500,
-    },
-  }
-else
-  vim.notify("clangd not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
+-- if utils.executable("clangd") then
+--   lspconfig.clangd.setup {
+--     on_attach = custom_attach,
+--     capabilities = capabilities,
+--     filetypes = { "c", "cpp", "cc" },
+--     flags = {
+--       debounce_text_changes = 500,
+--     },
+--   }
+-- else
+--   vim.notify("clangd not found!", vim.log.levels.WARN, { title = "Nvim-config" })
+-- end
 
 -- set up vim-language-server
 if utils.executable("vim-language-server") then

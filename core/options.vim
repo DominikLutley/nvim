@@ -44,10 +44,12 @@ set backup  " create backup for files
 set backupcopy=yes  " copy the original file to backupdir and overwrite it
 
 " General tab settings
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " number of spaces to use for autoindent
 set expandtab       " expand tab to spaces so that tabs are spaces
+set autoindent
+set smartindent
 
 " Set matching pairs of characters and highlight matching brackets
 set matchpairs+=<:>,「:」,『:』,【:】,“:”,‘:’,《:》
@@ -177,5 +179,5 @@ set diffopt+=closeoff  " turn off diff when one file window is closed
 set diffopt+=context:3  " context for diff
 set diffopt+=internal,indent-heuristic,algorithm:histogram
 
-set nowrap  " do no wrap
+set wrap  " wrap lines
 set noruler
