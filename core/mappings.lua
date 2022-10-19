@@ -152,10 +152,10 @@ keymap.set("x", "<A-j>", '<cmd>call utils#MoveSelection("down")<cr>', { desc = "
 keymap.set("x", "p", '"_c<Esc>p')
 
 -- Go to a certain buffer
-keymap.set("n", "gb", '<cmd>call buf_utils#GoToBuffer(v:count, "forward")<cr>', {
+keymap.set("n", "<Tab>", '<cmd>call buf_utils#GoToBuffer(v:count, "forward")<cr>', {
   desc = "go to buffer (forward)",
 })
-keymap.set("n", "gB", '<cmd>call buf_utils#GoToBuffer(v:count, "backward")<cr>', {
+keymap.set("n", "<S-Tab>", '<cmd>call buf_utils#GoToBuffer(v:count, "backward")<cr>', {
   desc = "go to buffer (backward)",
 })
 
