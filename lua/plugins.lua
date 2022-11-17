@@ -40,22 +40,22 @@ packer.startup {
 
     use { "wbthomason/packer.nvim", opt = true }
 
-    use { "onsails/lspkind-nvim", event = "VimEnter" }
+    -- use { "onsails/lspkind-nvim", event = "VimEnter" }
     -- auto-completion engine
-    use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvim-cmp')]] }
+    -- use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvim-cmp')]] }
 
     -- nvim-cmp completion sources
-    use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
-    use { "hrsh7th/cmp-path", after = "nvim-cmp" }
-    use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
-    use { "hrsh7th/cmp-omni", after = "nvim-cmp" }
-    use { "quangnguyen30192/cmp-nvim-ultisnips", after = { "nvim-cmp", "ultisnips" } }
-    if vim.g.is_mac then
-      use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
-    end
+    -- use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
+    -- use { "hrsh7th/cmp-path", after = "nvim-cmp" }
+    -- use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
+    -- use { "hrsh7th/cmp-omni", after = "nvim-cmp" }
+    -- use { "quangnguyen30192/cmp-nvim-ultisnips", after = { "nvim-cmp", "ultisnips" } }
+    -- if vim.g.is_mac then
+    --   use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
+    -- end
 
     -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
-    use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] }
+    -- use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] }
 
     if vim.g.is_mac then
       use {
@@ -180,8 +180,8 @@ packer.startup {
     end
 
     -- Snippet engine and snippet template
-    use { "SirVer/ultisnips", event = "InsertEnter" }
-    use { "honza/vim-snippets", after = "ultisnips" }
+    -- use { "SirVer/ultisnips", event = "InsertEnter" }
+    -- use { "honza/vim-snippets", after = "ultisnips" }
 
     -- Automatic insertion and deletion of a pair of characters
     use { "Raimondi/delimitMate", event = "InsertEnter" }
@@ -259,13 +259,13 @@ packer.startup {
     use { "elzr/vim-json", ft = { "json", "markdown" } }
 
     -- Markdown previewing (only for Mac and Windows)
-    if vim.g.is_win or vim.g.is_mac then
-      use {
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        ft = { "markdown" },
-      }
-    end
+    -- if vim.g.is_win or vim.g.is_mac then
+    --   use {
+    --     "iamcco/markdown-preview.nvim",
+    --     run = "cd app && npm install",
+    --     ft = { "markdown" },
+    --   }
+    -- end
 
     use { "folke/zen-mode.nvim", cmd = "ZenMode", config = [[require('config.zen-mode')]] }
 
@@ -286,16 +286,16 @@ packer.startup {
     use { "michaeljsmith/vim-indent-object", event = "VimEnter" }
 
     -- Only use these plugin on Windows and Mac and when LaTeX is installed
-    if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
-      use { "lervag/vimtex", ft = { "tex" } }
-    end
+    -- if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
+    --   use { "lervag/vimtex", ft = { "tex" } }
+    -- end
 
     -- Since tmux is only available on Linux and Mac, we only enable these plugins
     -- for Linux and Mac
-    if utils.executable("tmux") then
-      -- .tmux.conf syntax highlighting and setting check
-      use { "tmux-plugins/vim-tmux", ft = { "tmux" } }
-    end
+    -- if utils.executable("tmux") then
+    --   -- .tmux.conf syntax highlighting and setting check
+    --   use { "tmux-plugins/vim-tmux", ft = { "tmux" } }
+    -- end
 
     -- Modern matchit implementation
     use { "andymass/vim-matchup", event = "VimEnter" }
@@ -319,16 +319,16 @@ packer.startup {
     use { "cespare/vim-toml", ft = { "toml" }, branch = "main" }
 
     -- Edit text area in browser using nvim
-    if vim.g.is_win or vim.g.is_mac then
-      use {
-        "glacambre/firenvim",
-        run = function()
-          fn["firenvim#install"](0)
-        end,
-        opt = true,
-        setup = [[vim.cmd('packadd firenvim')]],
-      }
-    end
+    -- if vim.g.is_win or vim.g.is_mac then
+    --   use {
+    --     "glacambre/firenvim",
+    --     run = function()
+    --       fn["firenvim#install"](0)
+    --     end,
+    --     opt = true,
+    --     setup = [[vim.cmd('packadd firenvim')]],
+    --   }
+    -- end
 
     -- Debugger plugin
     if vim.g.is_win or vim.g.is_linux then
@@ -368,7 +368,10 @@ packer.startup {
 
     use { "ii14/emmylua-nvim", ft = "lua" }
 
-    use { "j-hui/fidget.nvim", after = "nvim-lspconfig", config = [[require('config.fidget-nvim')]] }
+    -- use { "j-hui/fidget.nvim", after = "nvim-lspconfig", config = [[require('config.fidget-nvim')]] }
+
+    -- CoC
+    use {'neoclide/coc.nvim', branch = 'release'}
   end,
   config = {
     max_jobs = 16,

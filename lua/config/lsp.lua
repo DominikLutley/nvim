@@ -84,10 +84,35 @@ local custom_attach = function(client, bufnr)
 end
 
 local capabilities = lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
+
+-- if utils.executable("rust-analyzer") then
+--   lspconfig.rust_analyzer.setup {
+--     on_attach = custom_attach,
+--     settings = {
+--       ["rust-analyzer"] = {
+--         imports = {
+--           granularity = {
+--             group = "module",
+--           },
+--           prefix = "self",
+--         },
+--         cargo = {
+--           buildScripts = {
+--             enable = true,
+--           },
+--         },
+--         procMacro = {
+--           enable = true
+--         },
+--       }
+--     },
+--     capabilities = capabilities
+--   }
+-- end
 
 if utils.executable("tsserver") then
   lspconfig.tsserver.setup {

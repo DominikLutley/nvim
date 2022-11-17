@@ -180,4 +180,5 @@ set diffopt+=context:3  " context for diff
 set diffopt+=internal,indent-heuristic,algorithm:histogram
 
 set wrap  " wrap lines
+set linebreak
 set noruler
