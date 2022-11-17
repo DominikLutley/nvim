@@ -32,7 +32,7 @@ dashboard.custom_center = {
   {
     icon = "  ",
     desc = "Project grep                            ",
-    action = "Leaderf rg --popup",
+    action = "Leaderf rg --regexMode --popup",
     shortcut = "<Leader> f g",
   },
   {
